@@ -1,0 +1,18 @@
+{
+  "name": "traced-node-modules",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@emnapi/runtime": "1.11.3",
+    "@img/colour": "1.1.0",
+    "@img/sharp-libvips-linux-x64": "1.3.3",
+    "@img/sharp-libvips-linuxmusl-x64": "1.3.3",
+    "@img/sharp-linux-x64": "0.35.4",
+    "@img/sharp-linuxmusl-x64": "0.35.4",
+    "@img/sharp-wasm32": "0.35.4",
+    "detect-libc": "2.1.2",
+    "semver": "7.8.5",
+    "sharp": "0.35.4"
+  }
+}

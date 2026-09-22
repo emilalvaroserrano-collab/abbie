@@ -1,0 +1,41 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Abbie",
+      "hasCanvas": false,
+      "bodyTextLen": 338,
+      "bodyTextHash": "49a79b9d58c29790722df490d25836289243b58be7c4f84d87912a83d046ba58",
+      "bodyTextPrefix": "Abbie Active now Link WhatsApp Today · 2:21 PM Hey — I’m Abbie. ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Abbie",
+      "hasCanvas": false,
+      "bodyTextLen": 308,
+      "bodyTextHash": "cb4646249762d7c064c016ffe742793aebf51e60ee3600e25bc5639d02a19c9a",
+      "bodyTextPrefix": "Abbie Active now Today · 2:21 PM Hey — I’m Abbie. Tell me what y",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": true,
+  "baselineReasons": [
+    "desktop: body text replaced (similar length, page start changed)",
+    "mobile: body text replaced (similar length, page start changed)"
+  ]
+}

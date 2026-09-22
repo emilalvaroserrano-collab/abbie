@@ -1,0 +1,1066 @@
+
+> preview
+> node scripts/with-app-env.mjs vite preview
+
+
+ ╭────────── [Build Info] ─────────────╮
+ │                                     │
+ │  - Build Directory: .vercel/output  │
+ │  - Date: 9/22/2026, 4:10:40 AM      │
+ │  - Nitro Version: 3.0.260610-beta   │
+ │  - Nitro Preset: vercel             │
+ │                                     │
+ ╰─────────────────────────────────────╯
+
+  ➜  Local:   http://127.0.0.1:8081/
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+
+> preview
+> node scripts/with-app-env.mjs vite preview
+
+
+ ╭────────── [Build Info] ─────────────╮
+ │                                     │
+ │  - Build Directory: .vercel/output  │
+ │  - Date: 9/22/2026, 4:31:50 AM      │
+ │  - Nitro Version: 3.0.260610-beta   │
+ │  - Nitro Preset: vercel             │
+ │                                     │
+ ╰─────────────────────────────────────╯
+
+  ➜  Local:   http://127.0.0.1:8081/
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+
+> preview
+> node scripts/with-app-env.mjs vite preview
+
+
+ ╭────────── [Build Info] ─────────────╮
+ │                                     │
+ │  - Build Directory: .vercel/output  │
+ │  - Date: 9/22/2026, 4:33:35 AM      │
+ │  - Nitro Version: 3.0.260610-beta   │
+ │  - Nitro Preset: vercel             │
+ │                                     │
+ ╰─────────────────────────────────────╯
+
+  ➜  Local:   http://127.0.0.1:8081/
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+
+> preview
+> node scripts/with-app-env.mjs vite preview
+
+
+ ╭────────── [Build Info] ─────────────╮
+ │                                     │
+ │  - Build Directory: .vercel/output  │
+ │  - Date: 9/22/2026, 5:34:01 AM      │
+ │  - Nitro Version: 3.0.260610-beta   │
+ │  - Nitro Preset: vercel             │
+ │                                     │
+ ╰─────────────────────────────────────╯
+
+  ➜  Local:   http://127.0.0.1:8081/
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+
+> preview
+> node scripts/with-app-env.mjs vite preview
+
+
+ ╭────────── [Build Info] ─────────────╮
+ │                                     │
+ │  - Build Directory: .vercel/output  │
+ │  - Date: 9/22/2026, 5:54:06 AM      │
+ │  - Nitro Version: 3.0.260610-beta   │
+ │  - Nitro Preset: vercel             │
+ │                                     │
+ ╰─────────────────────────────────────╯
+
+  ➜  Local:   http://127.0.0.1:8081/
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+
+> preview
+> node scripts/with-app-env.mjs vite preview
+
+
+ ╭────────── [Build Info] ─────────────╮
+ │                                     │
+ │  - Build Directory: .vercel/output  │
+ │  - Date: 9/22/2026, 6:04:33 AM      │
+ │  - Nitro Version: 3.0.260610-beta   │
+ │  - Nitro Preset: vercel             │
+ │                                     │
+ ╰─────────────────────────────────────╯
+
+  ➜  Local:   http://127.0.0.1:8081/
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+[db] PGLite bootstrap failed: Error: ENOENT: no such file or directory, open '/workspace/.vercel/output/functions/__server.func/_libs/pglite.data'
+    at async open (node:internal/fs/promises:639:25)
+    at async Module.readFile (node:internal/fs/promises:1252:14)
+    at async Object.w$2 (file:///workspace/.vercel/output/functions/__server.func/_libs/electric-sql__pglite.mjs:114:16) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/workspace/.vercel/output/functions/__server.func/_libs/pglite.data'
+}
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+Error: ENOENT: no such file or directory, open '/workspace/.vercel/output/functions/__server.func/_libs/pglite.data'
+    at async open (node:internal/fs/promises:639:25)
+    at async Module.readFile (node:internal/fs/promises:1252:14)
+    at async Object.w$2 (file:///workspace/.vercel/output/functions/__server.func/_libs/electric-sql__pglite.mjs:114:16) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/workspace/.vercel/output/functions/__server.func/_libs/pglite.data'
+}
+
+Node.js v22.23.2
+
+> preview
+> node scripts/with-app-env.mjs vite preview
+
+
+ ╭────────── [Build Info] ─────────────╮
+ │                                     │
+ │  - Build Directory: .vercel/output  │
+ │  - Date: 9/22/2026, 6:21:13 AM      │
+ │  - Nitro Version: 3.0.260610-beta   │
+ │  - Nitro Preset: vercel             │
+ │                                     │
+ ╰─────────────────────────────────────╯
+
+  ➜  Local:   http://127.0.0.1:8081/
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+[db] PGLite bootstrap failed: Error: ENOENT: no such file or directory, open '/workspace/.vercel/output/functions/__server.func/_libs/pglite.data'
+    at async open (node:internal/fs/promises:639:25)
+    at async Module.readFile (node:internal/fs/promises:1252:14)
+    at async Object.w$2 (file:///workspace/.vercel/output/functions/__server.func/_libs/electric-sql__pglite.mjs:114:16) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/workspace/.vercel/output/functions/__server.func/_libs/pglite.data'
+}
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+Error: ENOENT: no such file or directory, open '/workspace/.vercel/output/functions/__server.func/_libs/pglite.data'
+    at async open (node:internal/fs/promises:639:25)
+    at async Module.readFile (node:internal/fs/promises:1252:14)
+    at async Object.w$2 (file:///workspace/.vercel/output/functions/__server.func/_libs/electric-sql__pglite.mjs:114:16) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/workspace/.vercel/output/functions/__server.func/_libs/pglite.data'
+}
+
+Node.js v22.23.2
+
+> preview
+> node scripts/with-app-env.mjs vite preview
+
+
+ ╭────────── [Build Info] ─────────────╮
+ │                                     │
+ │  - Build Directory: .vercel/output  │
+ │  - Date: 9/22/2026, 6:21:13 AM      │
+ │  - Nitro Version: 3.0.260610-beta   │
+ │  - Nitro Preset: vercel             │
+ │                                     │
+ ╰─────────────────────────────────────╯
+
+  ➜  Local:   http://127.0.0.1:8081/
+[db] PGLite bootstrap failed: Error: ENOENT: no such file or directory, open '/workspace/.vercel/output/functions/__server.func/_libs/pglite.data'
+    at async open (node:internal/fs/promises:639:25)
+    at async Module.readFile (node:internal/fs/promises:1252:14)
+    at async Object.w$2 (file:///workspace/.vercel/output/functions/__server.func/_libs/electric-sql__pglite.mjs:114:16) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/workspace/.vercel/output/functions/__server.func/_libs/pglite.data'
+}
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+Error: ENOENT: no such file or directory, open '/workspace/.vercel/output/functions/__server.func/_libs/pglite.data'
+    at async open (node:internal/fs/promises:639:25)
+    at async Module.readFile (node:internal/fs/promises:1252:14)
+    at async Object.w$2 (file:///workspace/.vercel/output/functions/__server.func/_libs/electric-sql__pglite.mjs:114:16) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/workspace/.vercel/output/functions/__server.func/_libs/pglite.data'
+}
+
+Node.js v22.23.2
+
+> preview
+> node scripts/with-app-env.mjs vite preview
+
+
+ ╭────────── [Build Info] ─────────────╮
+ │                                     │
+ │  - Build Directory: .vercel/output  │
+ │  - Date: 9/22/2026, 6:21:13 AM      │
+ │  - Nitro Version: 3.0.260610-beta   │
+ │  - Nitro Preset: vercel             │
+ │                                     │
+ ╰─────────────────────────────────────╯
+
+  ➜  Local:   http://127.0.0.1:8081/
+[db] PGLite bootstrap failed: Error: ENOENT: no such file or directory, open '/workspace/.vercel/output/functions/__server.func/_libs/pglite.data'
+    at async open (node:internal/fs/promises:639:25)
+    at async Module.readFile (node:internal/fs/promises:1252:14)
+    at async Object.w$2 (file:///workspace/.vercel/output/functions/__server.func/_libs/electric-sql__pglite.mjs:114:16) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/workspace/.vercel/output/functions/__server.func/_libs/pglite.data'
+}
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+Error: ENOENT: no such file or directory, open '/workspace/.vercel/output/functions/__server.func/_libs/pglite.data'
+    at async open (node:internal/fs/promises:639:25)
+    at async Module.readFile (node:internal/fs/promises:1252:14)
+    at async Object.w$2 (file:///workspace/.vercel/output/functions/__server.func/_libs/electric-sql__pglite.mjs:114:16) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/workspace/.vercel/output/functions/__server.func/_libs/pglite.data'
+}
+
+Node.js v22.23.2
+
+> preview
+> node scripts/with-app-env.mjs vite preview
+
+
+ ╭────────── [Build Info] ─────────────╮
+ │                                     │
+ │  - Build Directory: .vercel/output  │
+ │  - Date: 9/22/2026, 6:21:13 AM      │
+ │  - Nitro Version: 3.0.260610-beta   │
+ │  - Nitro Preset: vercel             │
+ │                                     │
+ ╰─────────────────────────────────────╯
+
+  ➜  Local:   http://127.0.0.1:8081/
+
+> preview
+> node scripts/with-app-env.mjs vite preview
+
+
+ ╭────────── [Build Info] ─────────────╮
+ │                                     │
+ │  - Build Directory: .vercel/output  │
+ │  - Date: 9/22/2026, 6:26:46 AM      │
+ │  - Nitro Version: 3.0.260610-beta   │
+ │  - Nitro Preset: vercel             │
+ │                                     │
+ ╰─────────────────────────────────────╯
+
+  ➜  Local:   http://127.0.0.1:8081/
+Error in renderToReadableStream: ReferenceError: Cannot access 'infoOpen' before initialization
+    at Messenger (file:///workspace/.vercel/output/functions/__server.func/_ssr/routes-BLyocWvW.mjs:283:12)
+    at renderWithHooks (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12252:18)
+    at renderElement (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12316:11)
+    at retryNode (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12680:12)
+    at renderNodeDestructive (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12578:235)
+    at finishFunctionComponent (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12268:232)
+    at renderElement (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12318:4)
+    at retryNode (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12680:12)
+    at renderNodeDestructive (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12578:235)
+    at finishFunctionComponent (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12268:232) { componentStack: [Getter] }
+Error in renderToReadableStream: ReferenceError: Cannot access 'infoOpen' before initialization
+    at Messenger (file:///workspace/.vercel/output/functions/__server.func/_ssr/routes-BLyocWvW.mjs:283:12)
+    at renderWithHooks (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12252:18)
+    at renderElement (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12316:11)
+    at retryNode (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12680:12)
+    at renderNodeDestructive (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12578:235)
+    at finishFunctionComponent (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12268:232)
+    at renderElement (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12318:4)
+    at retryNode (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12680:12)
+    at renderNodeDestructive (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12578:235)
+    at finishFunctionComponent (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12268:232) { componentStack: [Getter] }
+Error in renderToReadableStream: ReferenceError: Cannot access 'infoOpen' before initialization
+    at Messenger (file:///workspace/.vercel/output/functions/__server.func/_ssr/routes-BLyocWvW.mjs:283:12)
+    at renderWithHooks (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12252:18)
+    at renderElement (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12316:11)
+    at retryNode (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12680:12)
+    at renderNodeDestructive (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12578:235)
+    at finishFunctionComponent (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12268:232)
+    at renderElement (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12318:4)
+    at retryNode (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12680:12)
+    at renderNodeDestructive (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12578:235)
+    at finishFunctionComponent (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12268:232) { componentStack: [Getter] }
+Error in renderToReadableStream: ReferenceError: Cannot access 'infoOpen' before initialization
+    at Messenger (file:///workspace/.vercel/output/functions/__server.func/_ssr/routes-BLyocWvW.mjs:283:12)
+    at renderWithHooks (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12252:18)
+    at renderElement (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12316:11)
+    at retryNode (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12680:12)
+    at renderNodeDestructive (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12578:235)
+    at finishFunctionComponent (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12268:232)
+    at renderElement (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12318:4)
+    at retryNode (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12680:12)
+    at renderNodeDestructive (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12578:235)
+    at finishFunctionComponent (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12268:232) { componentStack: [Getter] }
+Error in renderToReadableStream: ReferenceError: Cannot access 'infoOpen' before initialization
+    at Messenger (file:///workspace/.vercel/output/functions/__server.func/_ssr/routes-BLyocWvW.mjs:283:12)
+    at renderWithHooks (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12252:18)
+    at renderElement (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12316:11)
+    at retryNode (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12680:12)
+    at renderNodeDestructive (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12578:235)
+    at finishFunctionComponent (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12268:232)
+    at renderElement (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12318:4)
+    at retryNode (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12680:12)
+    at renderNodeDestructive (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12578:235)
+    at finishFunctionComponent (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12268:232) { componentStack: [Getter] }
+Error in renderToReadableStream: ReferenceError: Cannot access 'infoOpen' before initialization
+    at Messenger (file:///workspace/.vercel/output/functions/__server.func/_ssr/routes-BLyocWvW.mjs:283:12)
+    at renderWithHooks (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12252:18)
+    at renderElement (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12316:11)
+    at retryNode (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12680:12)
+    at renderNodeDestructive (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12578:235)
+    at finishFunctionComponent (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12268:232)
+    at renderElement (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12318:4)
+    at retryNode (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12680:12)
+    at renderNodeDestructive (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12578:235)
+    at finishFunctionComponent (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12268:232) { componentStack: [Getter] }
+Error in renderToReadableStream: ReferenceError: Cannot access 'infoOpen' before initialization
+    at Messenger (file:///workspace/.vercel/output/functions/__server.func/_ssr/routes-BLyocWvW.mjs:283:12)
+    at renderWithHooks (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12252:18)
+    at renderElement (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12316:11)
+    at retryNode (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12680:12)
+    at renderNodeDestructive (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12578:235)
+    at finishFunctionComponent (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12268:232)
+    at renderElement (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12318:4)
+    at retryNode (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12680:12)
+    at renderNodeDestructive (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12578:235)
+    at finishFunctionComponent (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12268:232) { componentStack: [Getter] }
+Error in renderToReadableStream: ReferenceError: Cannot access 'infoOpen' before initialization
+    at Messenger (file:///workspace/.vercel/output/functions/__server.func/_ssr/routes-BLyocWvW.mjs:283:12)
+    at renderWithHooks (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12252:18)
+    at renderElement (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12316:11)
+    at retryNode (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12680:12)
+    at renderNodeDestructive (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12578:235)
+    at finishFunctionComponent (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12268:232)
+    at renderElement (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12318:4)
+    at retryNode (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12680:12)
+    at renderNodeDestructive (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12578:235)
+    at finishFunctionComponent (file:///workspace/.vercel/output/functions/__server.func/_libs/@tanstack/react-router+%5B...%5D.mjs:12268:232) { componentStack: [Getter] }
+
+> preview
+> node scripts/with-app-env.mjs vite preview
+
+
+ ╭────────── [Build Info] ─────────────╮
+ │                                     │
+ │  - Build Directory: .vercel/output  │
+ │  - Date: 9/22/2026, 6:28:01 AM      │
+ │  - Nitro Version: 3.0.260610-beta   │
+ │  - Nitro Preset: vercel             │
+ │                                     │
+ ╰─────────────────────────────────────╯
+
+  ➜  Local:   http://127.0.0.1:8081/
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+
+> preview
+> node scripts/with-app-env.mjs vite preview
+
+
+ ╭────────── [Build Info] ─────────────╮
+ │                                     │
+ │  - Build Directory: .vercel/output  │
+ │  - Date: 9/22/2026, 6:36:06 AM      │
+ │  - Nitro Version: 3.0.260610-beta   │
+ │  - Nitro Preset: vercel             │
+ │                                     │
+ ╰─────────────────────────────────────╯
+
+  ➜  Local:   http://127.0.0.1:8081/
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+
+> preview
+> node scripts/with-app-env.mjs vite preview
+
+
+ ╭────────── [Build Info] ─────────────╮
+ │                                     │
+ │  - Build Directory: .vercel/output  │
+ │  - Date: 9/22/2026, 6:38:04 AM      │
+ │  - Nitro Version: 3.0.260610-beta   │
+ │  - Nitro Preset: vercel             │
+ │                                     │
+ ╰─────────────────────────────────────╯
+
+  ➜  Local:   http://127.0.0.1:8081/
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+
+> preview
+> node scripts/with-app-env.mjs vite preview
+
+
+ ╭────────── [Build Info] ─────────────╮
+ │                                     │
+ │  - Build Directory: .vercel/output  │
+ │  - Date: 9/22/2026, 6:51:58 AM      │
+ │  - Nitro Version: 3.0.260610-beta   │
+ │  - Nitro Preset: vercel             │
+ │                                     │
+ ╰─────────────────────────────────────╯
+
+  ➜  Local:   http://127.0.0.1:8081/
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+
+> preview
+> node scripts/with-app-env.mjs vite preview
+
+
+ ╭────────── [Build Info] ─────────────╮
+ │                                     │
+ │  - Build Directory: .vercel/output  │
+ │  - Date: 9/22/2026, 7:02:31 AM      │
+ │  - Nitro Version: 3.0.260610-beta   │
+ │  - Nitro Preset: vercel             │
+ │                                     │
+ ╰─────────────────────────────────────╯
+
+  ➜  Local:   http://127.0.0.1:8081/
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+
+> preview
+> node scripts/with-app-env.mjs vite preview
+
+
+ ╭────────── [Build Info] ─────────────╮
+ │                                     │
+ │  - Build Directory: .vercel/output  │
+ │  - Date: 9/22/2026, 2:20:27 PM      │
+ │  - Nitro Version: 3.0.260610-beta   │
+ │  - Nitro Preset: vercel             │
+ │                                     │
+ ╰─────────────────────────────────────╯
+
+  ➜  Local:   http://127.0.0.1:8081/
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
+Error: aborted
+    at abortIncoming (node:_http_server:838:17)
+    ... 3 lines matching cause stack trace ...
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+  cause: Error: aborted
+      at abortIncoming (node:_http_server:838:17)
+      at socketOnClose (node:_http_server:832:3)
+      at Socket.emit (node:events:531:35)
+      at TCP.<anonymous> (node:net:347:12)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    code: 'ECONNRESET'
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
