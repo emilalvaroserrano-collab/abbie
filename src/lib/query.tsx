@@ -22,6 +22,7 @@ export function AppProviders({ children }: { children: ReactNode }) {
       <Toaster
         theme="dark"
         position="top-center"
+        style={{ zIndex: 80 }}
         toastOptions={{
           style: {
             background: "#1c1c1e",

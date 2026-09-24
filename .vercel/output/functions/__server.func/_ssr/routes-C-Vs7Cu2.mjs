@@ -7,7 +7,7 @@ import { n as toast } from "../_libs/sonner.mjs";
 import { n as create, t as persist } from "../_libs/zustand.mjs";
 import { t as clsx } from "../_libs/clsx.mjs";
 import { t as twMerge } from "../_libs/tailwind-merge.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-P3WXec6T.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-C-Vs7Cu2.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var createSsrRpc = (functionId) => {
@@ -44,6 +44,10 @@ var transcribeAudio = createServerFn({ method: "POST" }).validator(object({
 var getWhatsAppStatus = createServerFn({ method: "GET" }).handler(createSsrRpc("c99399d4ec1f3c1ba13a388cd1525f0f88667dd4340dd1d4742f09557b6c1239"));
 createServerFn({ method: "POST" }).handler(createSsrRpc("2c60afcbafe283adab2aa3bc4747618252771b291b80eacd584a308b15f9eb9d"));
 var requestWhatsAppPairing = createServerFn({ method: "POST" }).validator(object({ phone: string().min(8).max(20) })).handler(createSsrRpc("7b44fd1dd6d6c73dc43a322ebf28687fcd246ba5b626cb98bf5974eb7010329d"));
+var sendWhatsAppMessage = createServerFn({ method: "POST" }).validator(object({
+	to: string().min(8).max(20),
+	text: string().min(1).max(2e3)
+})).handler(createSsrRpc("207e0deaca69643d6c4f1d42eb16c1f8188047f9f50dd7504e5b3c4c59c46a1a"));
 var logoutWhatsAppLink = createServerFn({ method: "POST" }).handler(createSsrRpc("a712c54ef250ea32b33178838d0920487eb9cddbeab7d8abd6965a44b10ce3ad"));
 var getStudioSchedule = createServerFn({ method: "GET" }).handler(createSsrRpc("c989707bb1936c41e47b55fe6811b0baed2ad8c4d1cee7d4ee0bd6c41e3125c0"));
 createServerFn({ method: "POST" }).handler(createSsrRpc("a61abbf46cb5555f6c8b62d76df4cdbf39b794e54981ce14a91434fb4ba4442f"));
@@ -1025,13 +1029,35 @@ function Messenger() {
 				error: leadsQ.error instanceof Error ? leadsQ.error.message : null,
 				loading: leadsQ.isLoading || leadsQ.isFetching,
 				onClose: () => setLeadsOpen(false),
-				onReply: async (pageId, recipientId, text) => {
+				onReply: async (pageId, recipientId, text, phone) => {
 					const result = await sendReply({ data: {
 						pageId,
 						recipientId,
 						text
 					} });
-					if (!result.ok) throw new Error(result.message);
+					if (result.ok) return {
+						ok: true,
+						message: result.message
+					};
+					if (result.extra?.reason === "window" && phone && phone.replace(/\D/g, "").length >= 8) {
+						const wa = await sendWhatsAppMessage({ data: {
+							to: phone,
+							text
+						} });
+						return wa.ok ? {
+							ok: true,
+							message: wa.message
+						} : {
+							ok: false,
+							message: wa.message,
+							window: true
+						};
+					}
+					return {
+						ok: false,
+						message: result.message,
+						window: result.extra?.reason === "window"
+					};
 				}
 			}),
 			infoOpen && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InfoPanel, {
@@ -1371,8 +1397,6 @@ function LeadsDrawer({ board, error, loading, onClose, onReply }) {
 	const [filter, setFilter] = (0, import_react.useState)("all");
 	const [q, setQ] = (0, import_react.useState)("");
 	const [openId, setOpenId] = (0, import_react.useState)(null);
-	const [reply, setReply] = (0, import_react.useState)("");
-	const [sending, setSending] = (0, import_react.useState)(false);
 	const leads = (0, import_react.useMemo)(() => {
 		const needle = q.trim().toLowerCase();
 		return (board?.leads ?? []).filter((l) => {
@@ -1447,10 +1471,7 @@ function LeadsDrawer({ board, error, loading, onClose, onReply }) {
 								className: "rounded-lg bg-elevated px-3 py-3",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
 									type: "button",
-									onClick: () => {
-										setOpenId(expanded ? null : l.id);
-										setReply("");
-									},
+									onClick: () => setOpenId(expanded ? null : l.id),
 									className: "w-full text-left",
 									children: [
 										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
@@ -1480,31 +1501,9 @@ function LeadsDrawer({ board, error, loading, onClose, onReply }) {
 											children: l.contact
 										}) : null
 									]
-								}), expanded && canReply ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
-									className: "mt-3 flex gap-2",
-									onSubmit: (e) => {
-										e.preventDefault();
-										const text = reply.trim();
-										if (!text || !l.participantId) return;
-										setSending(true);
-										onReply(l.pageId, l.participantId, text).then(() => {
-											toast.success(`Sent to ${l.name}`);
-											setReply("");
-										}).catch((err) => {
-											toast.error(err instanceof Error ? err.message : "Could not send");
-										}).finally(() => setSending(false));
-									},
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input, {
-										value: reply,
-										onChange: (e) => setReply(e.target.value),
-										placeholder: `Reply to ${l.name.split(" ")[0]}`,
-										className: "h-11"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-										type: "submit",
-										disabled: sending || !reply.trim(),
-										className: "h-11 shrink-0 rounded-md bg-accent px-3 text-sm font-medium text-accent-fg disabled:opacity-40",
-										children: "Send"
-									})]
+								}), expanded && canReply ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LeadReply, {
+									name: l.name,
+									onSend: (text, phone) => onReply(l.pageId, l.participantId, text, phone)
 								}) : expanded && l.source === "audience" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 									className: "mt-2 text-xs leading-relaxed text-faint",
 									children: "Use this interest in a paused Meta ads campaign. Ask Abbie to create one."
@@ -1518,6 +1517,59 @@ function LeadsDrawer({ board, error, loading, onClose, onReply }) {
 				})
 			]
 		})
+	});
+}
+function LeadReply({ name, onSend }) {
+	const [text, setText] = (0, import_react.useState)("");
+	const [phone, setPhone] = (0, import_react.useState)("");
+	const [sending, setSending] = (0, import_react.useState)(false);
+	const [note, setNote] = (0, import_react.useState)(null);
+	const [needsPhone, setNeedsPhone] = (0, import_react.useState)(false);
+	const first = name.split(" ")[0] || name;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+		className: "mt-3 space-y-2",
+		onSubmit: (e) => {
+			e.preventDefault();
+			const body = text.trim();
+			if (!body) return;
+			setSending(true);
+			setNote(null);
+			onSend(body, phone).then((result) => {
+				setNote(result.message);
+				setNeedsPhone(Boolean(result.window));
+				if (result.ok) {
+					setText("");
+					toast.success(result.message);
+				}
+			}).catch(() => setNote("Could not send. Try again.")).finally(() => setSending(false));
+		},
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "flex gap-2",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input, {
+					value: text,
+					onChange: (e) => setText(e.target.value),
+					placeholder: `Message ${first}`,
+					className: "h-11"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					type: "submit",
+					disabled: sending || !text.trim(),
+					className: "h-11 shrink-0 rounded-md bg-accent px-3 text-sm font-medium text-accent-fg disabled:opacity-40",
+					children: sending ? "Sending…" : "Send"
+				})]
+			}),
+			needsPhone ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input, {
+				value: phone,
+				onChange: (e) => setPhone(e.target.value),
+				placeholder: "WhatsApp number, country code",
+				inputMode: "tel",
+				className: "h-11"
+			}) : null,
+			note ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "text-xs leading-relaxed text-muted",
+				children: note
+			}) : null
+		]
 	});
 }
 function InfoPanel({ snapshot, error, wa, studio, leads, leadsError, onClose, onOpenLeads, onClear, onLogoutWa, onPair, onPauseCampaign }) {

@@ -5,8 +5,8 @@ import { a as number, c as union, i as literal, o as object, s as string } from 
 import { r as TriangleAlert } from "../_libs/lucide-react.mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { t as Toaster } from "../_libs/sonner.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-BMQ-7g5d.js
-var router_BMQ_7g5d_exports = /* @__PURE__ */ __exportAll({ getRouter: () => getRouter });
+//#region node_modules/.nitro/vite/services/ssr/assets/router-CIf_RV7K.js
+var router_CIf_RV7K_exports = /* @__PURE__ */ __exportAll({ getRouter: () => getRouter });
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var FALLBACK_MESSAGE = "An unexpected error occurred. Try reloading the page.";
@@ -314,6 +314,7 @@ function AppProviders({ children }) {
 		children: [children, /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Toaster, {
 			theme: "dark",
 			position: "top-center",
+			style: { zIndex: 80 },
 			toastOptions: { style: {
 				background: "#1c1c1e",
 				color: "#e4e6eb",
@@ -390,11 +391,11 @@ function Root() {
 		] })]
 	});
 }
-var $$splitComponentImporter = () => import("./routes-P3WXec6T.mjs");
+var $$splitComponentImporter = () => import("./routes-C-Vs7Cu2.mjs");
 var Route$1 = createFileRoute("/")({ component: lazyRouteComponent($$splitComponentImporter, "component") });
 var Route = createFileRoute("/api/cron")({ server: { handlers: { GET: async () => {
 	try {
-		const result = await (await import("./schedule.server-BcYEmHW4.mjs")).tickStudio();
+		const result = await (await import("./schedule.server-DARrRTbQ.mjs")).tickStudio();
 		return Response.json({
 			ok: true,
 			...result
@@ -427,4 +428,4 @@ function getRouter() {
 	});
 }
 //#endregion
-export { getRouter, router_BMQ_7g5d_exports as t };
+export { getRouter, router_CIf_RV7K_exports as t };

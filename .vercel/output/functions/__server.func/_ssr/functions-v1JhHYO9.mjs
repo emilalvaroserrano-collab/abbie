@@ -1,7 +1,7 @@
 import { t as createServerFn } from "./ssr.mjs";
 import { t as createServerRpc } from "./createServerRpc-A6pJPYTF.mjs";
 import { o as object, s as string } from "../_libs/zod.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/functions-CCKxWq6T.js
+//#region node_modules/.nitro/vite/services/ssr/assets/functions-v1JhHYO9.js
 var getStudioSchedule_createServerFn_handler = createServerRpc({
 	id: "c989707bb1936c41e47b55fe6811b0baed2ad8c4d1cee7d4ee0bd6c41e3125c0",
 	name: "getStudioSchedule",
@@ -10,7 +10,7 @@ var getStudioSchedule_createServerFn_handler = createServerRpc({
 var getStudioSchedule = createServerFn({ method: "GET" }).handler(getStudioSchedule_createServerFn_handler, async () => {
 	try {
 		return {
-			data: await (await import("./schedule.server-BcYEmHW4.mjs")).listStudio(),
+			data: await (await import("./schedule.server-DARrRTbQ.mjs")).listStudio(),
 			error: null
 		};
 	} catch (e) {
@@ -28,7 +28,7 @@ var tickStudioSchedule_createServerFn_handler = createServerRpc({
 var tickStudioSchedule = createServerFn({ method: "POST" }).handler(tickStudioSchedule_createServerFn_handler, async () => {
 	try {
 		return {
-			data: await (await import("./schedule.server-BcYEmHW4.mjs")).tickStudio(),
+			data: await (await import("./schedule.server-DARrRTbQ.mjs")).tickStudio(),
 			error: null
 		};
 	} catch (e) {
@@ -44,7 +44,7 @@ var pauseStudioCampaign_createServerFn_handler = createServerRpc({
 	filename: "src/lib/studio/functions.ts"
 }, (opts) => pauseStudioCampaign.__executeServer(opts));
 var pauseStudioCampaign = createServerFn({ method: "POST" }).validator(object({ id: string().min(8).max(80) })).handler(pauseStudioCampaign_createServerFn_handler, async ({ data }) => {
-	return (await import("./schedule.server-BcYEmHW4.mjs")).pauseCampaign(data.id);
+	return (await import("./schedule.server-DARrRTbQ.mjs")).pauseCampaign(data.id);
 });
 var pollStudioJob_createServerFn_handler = createServerRpc({
 	id: "bad154fc7932e5df8c5c4d97c3c71296872e353fd8175b08d5eac5a2bcf798a2",

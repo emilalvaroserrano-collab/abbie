@@ -88,7 +88,7 @@ var HEADERS = { TSS_SHELL: "X-TSS_SHELL" };
 * the dev styles URL for route-scoped CSS collection.
 */
 async function getStartManifest(matchedRoutes) {
-	const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-DSvYFOnk.mjs");
+	const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-BT1SQfrr.mjs");
 	const startManifest = tsrStartManifest();
 	let routes = startManifest.routes;
 	routes[rootRouteId];
@@ -110,83 +110,87 @@ async function getStartManifest(matchedRoutes) {
 var manifest = {
 	"1676b2c876b8c73d846be70bd050990c60a1b28ac9efc48b0b48645cc84df644": {
 		functionName: "pauseStudioCampaign_createServerFn_handler",
-		importer: () => import("./functions-CCKxWq6T.mjs")
+		importer: () => import("./functions-v1JhHYO9.mjs")
+	},
+	"207e0deaca69643d6c4f1d42eb16c1f8188047f9f50dd7504e5b3c4c59c46a1a": {
+		functionName: "sendWhatsAppMessage_createServerFn_handler",
+		importer: () => import("./functions-BekPtoXz.mjs")
 	},
 	"2c60afcbafe283adab2aa3bc4747618252771b291b80eacd584a308b15f9eb9d": {
 		functionName: "startWhatsAppLink_createServerFn_handler",
-		importer: () => import("./functions-DJPUQVPY.mjs")
+		importer: () => import("./functions-BekPtoXz.mjs")
 	},
 	"37e829d8f67658a37840205154bc43cd0400f4c3cfe8d41ad0bcaf2d7be4e82e": {
 		functionName: "getInbox_createServerFn_handler",
-		importer: () => import("./functions-Dq8N1MkQ.mjs")
+		importer: () => import("./functions-GPcNOkg2.mjs")
 	},
 	"43a4968c278ac56ce4b23ef7eb09693e2920f08b2a77ee0a0e24b5d694118f8f": {
 		functionName: "getLeadBoard_createServerFn_handler",
-		importer: () => import("./functions-Dq8N1MkQ.mjs")
+		importer: () => import("./functions-GPcNOkg2.mjs")
 	},
 	"598ee5ee960442c3e45f3f8e6f71f71345d5360ced1d54cfe62dbab73b0391ed": {
 		functionName: "getDashboard_createServerFn_handler",
-		importer: () => import("./functions-Dq8N1MkQ.mjs")
+		importer: () => import("./functions-GPcNOkg2.mjs")
 	},
 	"5af26b65bc4ea1127bc968d7135d27c5356798130fbaa1fb2b1ab120f8657dee": {
 		functionName: "getPosts_createServerFn_handler",
-		importer: () => import("./functions-Dq8N1MkQ.mjs")
+		importer: () => import("./functions-GPcNOkg2.mjs")
 	},
 	"6b05301f3bea0ddf8ba00d83045ba2159fc796437f50013602a1c105418502ed": {
 		functionName: "getAccounts_createServerFn_handler",
-		importer: () => import("./functions-Dq8N1MkQ.mjs")
+		importer: () => import("./functions-GPcNOkg2.mjs")
 	},
 	"6d7cd82177e6d276e369ea378945fba9dd62ee3623bfdeb5c7a7db1289fc6eb8": {
 		functionName: "runAgentTurn_createServerFn_handler",
-		importer: () => import("./functions-CcSFlWTU.mjs")
+		importer: () => import("./functions-CAYbS8zS.mjs")
 	},
 	"7b44fd1dd6d6c73dc43a322ebf28687fcd246ba5b626cb98bf5974eb7010329d": {
 		functionName: "requestWhatsAppPairing_createServerFn_handler",
-		importer: () => import("./functions-DJPUQVPY.mjs")
+		importer: () => import("./functions-BekPtoXz.mjs")
 	},
 	"88a5617652020962ef2664963dc18677220b6797f078c0388ba7710f709db744": {
 		functionName: "transcribeAudio_createServerFn_handler",
-		importer: () => import("./functions-CcSFlWTU.mjs")
+		importer: () => import("./functions-CAYbS8zS.mjs")
 	},
 	"928e2a8bed6d48264ecc871971a822a243035834e591947a563ffbca75b9e9a4": {
 		functionName: "getSnapshot_createServerFn_handler",
-		importer: () => import("./functions-CcSFlWTU.mjs")
+		importer: () => import("./functions-CAYbS8zS.mjs")
 	},
 	"a3df0e366d80d0e1f8470d798d8bee51806d1fce2b83ee38305083e4cdf5a26a": {
 		functionName: "sendReply_createServerFn_handler",
-		importer: () => import("./functions-Dq8N1MkQ.mjs")
+		importer: () => import("./functions-GPcNOkg2.mjs")
 	},
 	"a61abbf46cb5555f6c8b62d76df4cdbf39b794e54981ce14a91434fb4ba4442f": {
 		functionName: "tickStudioSchedule_createServerFn_handler",
-		importer: () => import("./functions-CCKxWq6T.mjs")
+		importer: () => import("./functions-v1JhHYO9.mjs")
 	},
 	"a712c54ef250ea32b33178838d0920487eb9cddbeab7d8abd6965a44b10ce3ad": {
 		functionName: "logoutWhatsAppLink_createServerFn_handler",
-		importer: () => import("./functions-DJPUQVPY.mjs")
+		importer: () => import("./functions-BekPtoXz.mjs")
 	},
 	"bad154fc7932e5df8c5c4d97c3c71296872e353fd8175b08d5eac5a2bcf798a2": {
 		functionName: "pollStudioJob_createServerFn_handler",
-		importer: () => import("./functions-CCKxWq6T.mjs")
+		importer: () => import("./functions-v1JhHYO9.mjs")
 	},
 	"c619a3eea344d9ad087624a921224058ab56cba72939029523969b9a7d434ead": {
 		functionName: "getConversation_createServerFn_handler",
-		importer: () => import("./functions-Dq8N1MkQ.mjs")
+		importer: () => import("./functions-GPcNOkg2.mjs")
 	},
 	"c989707bb1936c41e47b55fe6811b0baed2ad8c4d1cee7d4ee0bd6c41e3125c0": {
 		functionName: "getStudioSchedule_createServerFn_handler",
-		importer: () => import("./functions-CCKxWq6T.mjs")
+		importer: () => import("./functions-v1JhHYO9.mjs")
 	},
 	"c99399d4ec1f3c1ba13a388cd1525f0f88667dd4340dd1d4742f09557b6c1239": {
 		functionName: "getWhatsAppStatus_createServerFn_handler",
-		importer: () => import("./functions-DJPUQVPY.mjs")
+		importer: () => import("./functions-BekPtoXz.mjs")
 	},
 	"e1199b46e59d91a67a6b30449efbbdab293e2d63040d0e2ba7cba468700fcce8": {
 		functionName: "publishPost_createServerFn_handler",
-		importer: () => import("./functions-Dq8N1MkQ.mjs")
+		importer: () => import("./functions-GPcNOkg2.mjs")
 	},
 	"fa208a739a1045ffafce8240083d5b65cc4a9b57f43d8128f57417f850e835bf": {
 		functionName: "speakGreeting_createServerFn_handler",
-		importer: () => import("./functions-CcSFlWTU.mjs")
+		importer: () => import("./functions-CAYbS8zS.mjs")
 	}
 };
 async function getServerFnById(id, access) {
@@ -1456,7 +1460,7 @@ var getBaseManifest = getProdBaseManifest;
 var createEarlyHintsForRequest = createEarlyHintsCollector;
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		import("./router-BMQ-7g5d.mjs").then((n) => n.t),
+		import("./router-CIf_RV7K.mjs").then((n) => n.t),
 		import("./start-5Z2QO8AU.mjs"),
 		import("./empty-plugin-adapters-D9UWiqvJ.mjs")
 	]);

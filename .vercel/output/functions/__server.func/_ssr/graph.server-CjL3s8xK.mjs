@@ -1,4 +1,4 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/graph.server-DPX08zFw.js
+//#region node_modules/.nitro/vite/services/ssr/assets/graph.server-CjL3s8xK.js
 var GRAPH_BASE = `https://graph.facebook.com/v21.0`;
 /** Never-expiring system user token — pages, publish, insights. */
 var META_SYSTEM_TOKEN = "EAAQtdvBCMGcBShLQOaWX9nP7z7Bb2Xsgewm77lQvP0sy0WJHHinEKFT7DBPYj7SPzLmZCMacrz5t04w0a9cC8TJg8MRln0hA9hWDRdZAW9Qa1QO3ZCjooENAeCg2e0wIaXZARuaKpaVS8mzVddkCgwrriZCyEpmUjVIbXW9olWNGtr46VzZCYIBI6teaJptwZDZD";
@@ -277,12 +277,39 @@ async function replyConversation(input) {
 					message: { text }
 				}
 			})).message_id,
-			message: "Sent"
+			message: "Sent on Messenger"
 		};
 	} catch (err) {
+		const raw = err instanceof Error ? err.message : "Could not send message";
+		if (/outside of allowed window/i.test(raw)) try {
+			return {
+				ok: true,
+				id: (await graphFetch(`/${page.id}/messages`, page.accessToken, {
+					method: "POST",
+					body: {
+						recipient: { id: input.recipientId },
+						messaging_type: "MESSAGE_TAG",
+						tag: "HUMAN_AGENT",
+						message: { text }
+					}
+				})).message_id,
+				message: "Sent on Messenger"
+			};
+		} catch (tagErr) {
+			const tagRaw = tagErr instanceof Error ? tagErr.message : raw;
+			if (/outside of allowed window/i.test(tagRaw)) return {
+				ok: false,
+				message: "Messenger won’t deliver this. They last wrote too long ago, so Meta closed the chat. Add their WhatsApp number and send again.",
+				extra: { reason: "window" }
+			};
+			return {
+				ok: false,
+				message: tagRaw
+			};
+		}
 		return {
 			ok: false,
-			message: err instanceof Error ? err.message : "Could not send message"
+			message: raw
 		};
 	}
 }

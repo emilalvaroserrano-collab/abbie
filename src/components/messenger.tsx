@@ -23,6 +23,7 @@ import {
 } from "@/lib/whatsapp/functions";
 import { getStudioSchedule, pauseStudioCampaign, pollStudioJob } from "@/lib/studio/functions";
 import { getLeadBoard, sendReply } from "@/lib/meta/functions";
+import { sendWhatsAppMessage } from "@/lib/whatsapp/functions";
 import type { WaStatus } from "@/lib/whatsapp/types";
 import type { AgentAction } from "@/lib/agent/types";
 import type { LeadHit, LeadSource } from "@/lib/meta/types";
@@ -622,9 +623,20 @@ export function Messenger() {
           error={leadsQ.error instanceof Error ? leadsQ.error.message : null}
           loading={leadsQ.isLoading || leadsQ.isFetching}
           onClose={() => setLeadsOpen(false)}
-          onReply={async (pageId, recipientId, text) => {
+          onReply={async (pageId, recipientId, text, phone) => {
             const result = await sendReply({ data: { pageId, recipientId, text } });
-            if (!result.ok) throw new Error(result.message);
+            if (result.ok) return { ok: true, message: result.message };
+            if (result.extra?.reason === "window" && phone && phone.replace(/\D/g, "").length >= 8) {
+              const wa = await sendWhatsAppMessage({ data: { to: phone, text } });
+              return wa.ok
+                ? { ok: true, message: wa.message }
+                : { ok: false, message: wa.message, window: true };
+            }
+            return {
+              ok: false,
+              message: result.message,
+              window: result.extra?.reason === "window",
+            };
           }}
         />
       )}
@@ -996,13 +1008,16 @@ function LeadsDrawer({
   error: string | null;
   loading: boolean;
   onClose: () => void;
-  onReply: (pageId: string, recipientId: string, text: string) => Promise<void>;
+  onReply: (
+    pageId: string,
+    recipientId: string,
+    text: string,
+    phone: string,
+  ) => Promise<{ ok: boolean; message: string; window?: boolean }>;
 }) {
   const [filter, setFilter] = useState<"all" | LeadSource>("all");
   const [q, setQ] = useState("");
   const [openId, setOpenId] = useState<string | null>(null);
-  const [reply, setReply] = useState("");
-  const [sending, setSending] = useState(false);
 
   const leads = useMemo(() => {
     const needle = q.trim().toLowerCase();
@@ -1077,10 +1092,7 @@ function LeadsDrawer({
                   <li key={l.id} className="rounded-lg bg-elevated px-3 py-3">
                     <button
                       type="button"
-                      onClick={() => {
-                        setOpenId(expanded ? null : l.id);
-                        setReply("");
-                      }}
+                      onClick={() => setOpenId(expanded ? null : l.id)}
                       className="w-full text-left"
                     >
                       <span className="flex items-baseline justify-between gap-2">
@@ -1100,38 +1112,10 @@ function LeadsDrawer({
                       ) : null}
                     </button>
                     {expanded && canReply ? (
-                      <form
-                        className="mt-3 flex gap-2"
-                        onSubmit={(e) => {
-                          e.preventDefault();
-                          const text = reply.trim();
-                          if (!text || !l.participantId) return;
-                          setSending(true);
-                          void onReply(l.pageId, l.participantId, text)
-                            .then(() => {
-                              toast.success(`Sent to ${l.name}`);
-                              setReply("");
-                            })
-                            .catch((err: unknown) => {
-                              toast.error(err instanceof Error ? err.message : "Could not send");
-                            })
-                            .finally(() => setSending(false));
-                        }}
-                      >
-                        <Input
-                          value={reply}
-                          onChange={(e) => setReply(e.target.value)}
-                          placeholder={`Reply to ${l.name.split(" ")[0]}`}
-                          className="h-11"
-                        />
-                        <button
-                          type="submit"
-                          disabled={sending || !reply.trim()}
-                          className="h-11 shrink-0 rounded-md bg-accent px-3 text-sm font-medium text-accent-fg disabled:opacity-40"
-                        >
-                          Send
-                        </button>
-                      </form>
+                      <LeadReply
+                        name={l.name}
+                        onSend={(text, phone) => onReply(l.pageId, l.participantId!, text, phone)}
+                      />
                     ) : expanded && l.source === "audience" ? (
                       <p className="mt-2 text-xs leading-relaxed text-faint">
                         Use this interest in a paused Meta ads campaign. Ask Abbie to create one.
@@ -1148,6 +1132,71 @@ function LeadsDrawer({
         </div>
       </aside>
     </div>
+  );
+}
+
+function LeadReply({
+  name,
+  onSend,
+}: {
+  name: string;
+  onSend: (text: string, phone: string) => Promise<{ ok: boolean; message: string; window?: boolean }>;
+}) {
+  const [text, setText] = useState("");
+  const [phone, setPhone] = useState("");
+  const [sending, setSending] = useState(false);
+  const [note, setNote] = useState<string | null>(null);
+  const [needsPhone, setNeedsPhone] = useState(false);
+  const first = name.split(" ")[0] || name;
+
+  return (
+    <form
+      className="mt-3 space-y-2"
+      onSubmit={(e) => {
+        e.preventDefault();
+        const body = text.trim();
+        if (!body) return;
+        setSending(true);
+        setNote(null);
+        void onSend(body, phone)
+          .then((result) => {
+            setNote(result.message);
+            setNeedsPhone(Boolean(result.window));
+            if (result.ok) {
+              setText("");
+              toast.success(result.message);
+            }
+          })
+          .catch(() => setNote("Could not send. Try again."))
+          .finally(() => setSending(false));
+      }}
+    >
+      <div className="flex gap-2">
+        <Input
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder={`Message ${first}`}
+          className="h-11"
+        />
+        <button
+          type="submit"
+          disabled={sending || !text.trim()}
+          className="h-11 shrink-0 rounded-md bg-accent px-3 text-sm font-medium text-accent-fg disabled:opacity-40"
+        >
+          {sending ? "Sending…" : "Send"}
+        </button>
+      </div>
+      {needsPhone ? (
+        <Input
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          placeholder="WhatsApp number, country code"
+          inputMode="tel"
+          className="h-11"
+        />
+      ) : null}
+      {note ? <p className="text-xs leading-relaxed text-muted">{note}</p> : null}
+    </form>
   );
 }
 

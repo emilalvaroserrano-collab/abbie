@@ -18,6 +18,13 @@ export const requestWhatsAppPairing = createServerFn({ method: "POST" })
     return wa.requestPairing(data.phone);
   });
 
+export const sendWhatsAppMessage = createServerFn({ method: "POST" })
+  .validator(z.object({ to: z.string().min(8).max(20), text: z.string().min(1).max(2000) }))
+  .handler(async ({ data }) => {
+    const wa = await import("./baileys.server");
+    return wa.sendWhatsAppText(data.to, data.text);
+  });
+
 export const logoutWhatsAppLink = createServerFn({ method: "POST" }).handler(async () => {
   const wa = await import("./baileys.server");
   return wa.logoutWhatsApp();

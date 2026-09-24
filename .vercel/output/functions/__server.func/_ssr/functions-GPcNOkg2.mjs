@@ -1,7 +1,7 @@
 import { t as createServerFn } from "./ssr.mjs";
 import { t as createServerRpc } from "./createServerRpc-A6pJPYTF.mjs";
 import { n as array, o as object, s as string } from "../_libs/zod.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/functions-Dq8N1MkQ.js
+//#region node_modules/.nitro/vite/services/ssr/assets/functions-GPcNOkg2.js
 function metaErrorMessage(err) {
 	const msg = err instanceof Error ? err.message : String(err);
 	if (/request limit/i.test(msg) || /\(#4\)/.test(msg)) return "Meta is briefly rate-limiting this app. Wait a moment, then refresh — your accounts are still connected.";
@@ -26,7 +26,7 @@ var getDashboard_createServerFn_handler = createServerRpc({
 	filename: "src/lib/meta/functions.ts"
 }, (opts) => getDashboard.__executeServer(opts));
 var getDashboard = createServerFn({ method: "GET" }).handler(getDashboard_createServerFn_handler, async () => {
-	const { fetchDashboard } = await import("./graph.server-DPX08zFw.mjs");
+	const { fetchDashboard } = await import("./graph.server-CjL3s8xK.mjs");
 	return guard(() => fetchDashboard());
 });
 var getInbox_createServerFn_handler = createServerRpc({
@@ -35,7 +35,7 @@ var getInbox_createServerFn_handler = createServerRpc({
 	filename: "src/lib/meta/functions.ts"
 }, (opts) => getInbox.__executeServer(opts));
 var getInbox = createServerFn({ method: "GET" }).handler(getInbox_createServerFn_handler, async () => {
-	const { fetchInbox } = await import("./graph.server-DPX08zFw.mjs");
+	const { fetchInbox } = await import("./graph.server-CjL3s8xK.mjs");
 	return guard(() => fetchInbox());
 });
 var getConversation_createServerFn_handler = createServerRpc({
@@ -47,7 +47,7 @@ var getConversation = createServerFn({ method: "POST" }).validator(object({
 	pageId: string().min(1),
 	conversationId: string().min(1)
 })).handler(getConversation_createServerFn_handler, async ({ data }) => {
-	const { fetchConversation } = await import("./graph.server-DPX08zFw.mjs");
+	const { fetchConversation } = await import("./graph.server-CjL3s8xK.mjs");
 	return guard(() => fetchConversation(data));
 });
 var sendReply_createServerFn_handler = createServerRpc({
@@ -60,7 +60,7 @@ var sendReply = createServerFn({ method: "POST" }).validator(object({
 	recipientId: string().min(1),
 	text: string().min(1).max(2e3)
 })).handler(sendReply_createServerFn_handler, async ({ data }) => {
-	const { replyConversation } = await import("./graph.server-DPX08zFw.mjs");
+	const { replyConversation } = await import("./graph.server-CjL3s8xK.mjs");
 	return replyConversation(data);
 });
 var getPosts_createServerFn_handler = createServerRpc({
@@ -69,7 +69,7 @@ var getPosts_createServerFn_handler = createServerRpc({
 	filename: "src/lib/meta/functions.ts"
 }, (opts) => getPosts.__executeServer(opts));
 var getPosts = createServerFn({ method: "GET" }).handler(getPosts_createServerFn_handler, async () => {
-	const { fetchPosts } = await import("./graph.server-DPX08zFw.mjs");
+	const { fetchPosts } = await import("./graph.server-CjL3s8xK.mjs");
 	return guard(() => fetchPosts());
 });
 var publishPost_createServerFn_handler = createServerRpc({
@@ -82,7 +82,7 @@ var publishPost = createServerFn({ method: "POST" }).validator(object({
 	message: string().min(1).max(63206),
 	link: string().optional()
 })).handler(publishPost_createServerFn_handler, async ({ data }) => {
-	const { publishToPages } = await import("./graph.server-DPX08zFw.mjs");
+	const { publishToPages } = await import("./graph.server-CjL3s8xK.mjs");
 	return publishToPages(data);
 });
 var getAccounts_createServerFn_handler = createServerRpc({
@@ -91,7 +91,7 @@ var getAccounts_createServerFn_handler = createServerRpc({
 	filename: "src/lib/meta/functions.ts"
 }, (opts) => getAccounts.__executeServer(opts));
 var getAccounts = createServerFn({ method: "GET" }).handler(getAccounts_createServerFn_handler, async () => {
-	const { fetchAccounts } = await import("./graph.server-DPX08zFw.mjs");
+	const { fetchAccounts } = await import("./graph.server-CjL3s8xK.mjs");
 	return guard(() => fetchAccounts());
 });
 var getLeadBoard_createServerFn_handler = createServerRpc({
@@ -103,7 +103,7 @@ var getLeadBoard = createServerFn({ method: "POST" }).validator(object({
 	query: string().max(120).optional(),
 	pageId: string().optional()
 })).handler(getLeadBoard_createServerFn_handler, async ({ data }) => {
-	const { fetchLeadBoard } = await import("./leads.server-1xVPosqN.mjs");
+	const { fetchLeadBoard } = await import("./leads.server-BX8ATHyS.mjs");
 	return guard(() => fetchLeadBoard({
 		query: data.query,
 		pageId: data.pageId,

@@ -460,12 +460,36 @@ export async function replyConversation(input: {
         message: { text },
       },
     });
-    return { ok: true, id: res.message_id, message: "Sent" };
+    return { ok: true, id: res.message_id, message: "Sent on Messenger" };
   } catch (err) {
-    return {
-      ok: false,
-      message: err instanceof Error ? err.message : "Could not send message",
-    };
+    const raw = err instanceof Error ? err.message : "Could not send message";
+    const closed = /outside of allowed window/i.test(raw);
+    if (closed) {
+      try {
+        const res = await graphFetch<{ message_id?: string }>(`/${page.id}/messages`, page.accessToken, {
+          method: "POST",
+          body: {
+            recipient: { id: input.recipientId },
+            messaging_type: "MESSAGE_TAG",
+            tag: "HUMAN_AGENT",
+            message: { text },
+          },
+        });
+        return { ok: true, id: res.message_id, message: "Sent on Messenger" };
+      } catch (tagErr) {
+        const tagRaw = tagErr instanceof Error ? tagErr.message : raw;
+        if (/outside of allowed window/i.test(tagRaw)) {
+          return {
+            ok: false,
+            message:
+              "Messenger won’t deliver this. They last wrote too long ago, so Meta closed the chat. Add their WhatsApp number and send again.",
+            extra: { reason: "window" },
+          };
+        }
+        return { ok: false, message: tagRaw };
+      }
+    }
+    return { ok: false, message: raw };
   }
 }
 
