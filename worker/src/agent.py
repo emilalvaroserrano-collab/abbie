@@ -22,6 +22,9 @@ from livekit.plugins import ai_coustics
 logger = logging.getLogger("agent-AbbieCSR")
 
 load_dotenv(".env.local")
+load_dotenv()
+
+DEFAULT_CARTESIA_VOICE_ID = "9626c31c-bec5-4cca-baa8-f8ba9e84c8bc"
 
 PROMPT_DIR = Path(__file__).resolve().parent.parent / "prompts"
 ABBIE_INSTRUCTIONS = "\n".join(
@@ -70,7 +73,7 @@ async def entrypoint(ctx: JobContext):
         ),
         tts=inference.TTS(
             model="cartesia/sonic-3.6",
-            voice=os.environ["CARTESIA_VOICE_ID"],
+            voice=os.getenv("CARTESIA_VOICE_ID", DEFAULT_CARTESIA_VOICE_ID),
             language="en-US",
         ),
         expressive=True,
@@ -92,6 +95,8 @@ async def entrypoint(ctx: JobContext):
             ),
         ),
     )
+
+    await ctx.connect()
 
     background_audio = BackgroundAudioPlayer(
         ambient_sound=AudioConfig(BuiltinAudioClip.OFFICE_AMBIENCE, volume=1.0),
