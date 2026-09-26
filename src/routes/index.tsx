@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Messenger } from "@/components/messenger";
+import { CsrDashboard } from "@/components/csr-dashboard";
 
 export const Route = createFileRoute("/")({
   component: Home,
 });
 
 function Home() {
-  return <Messenger />;
+  return <CsrDashboard />;
 }
