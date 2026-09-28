@@ -14,10 +14,11 @@ from livekit.agents import (
     TurnHandlingOptions,
     cli,
     inference,
+    llm,
     room_io,
 )
 from livekit.agents.beta.tools import EndCallTool
-from livekit.plugins import ai_coustics
+from livekit.plugins import ai_coustics, openai
 
 logger = logging.getLogger("agent-AbbieCSR")
 
@@ -68,8 +69,22 @@ async def entrypoint(ctx: JobContext):
     session = AgentSession(
         stt=inference.STT(model="deepgram/nova-3", language="multi"),
         stt_context_options={"keyterm_detection": {"enabled": True}},
-        llm=inference.LLM(
-            model="google/gemma-4-31b-it",
+        llm=llm.FallbackAdapter(
+            [
+                openai.LLM(
+                    model=os.getenv("OLLAMA_MODEL", "gemma4:31b"),
+                    base_url="https://ollama.com/v1",
+                    api_key=os.environ["OLLAMA_API_KEY"],
+                ),
+                openai.LLM(
+                    model=os.getenv("OLLAMA_MODEL", "gemma4:31b"),
+                    base_url="https://ollama.com/v1",
+                    api_key=os.environ["OLLAMA_API_KEY_2"],
+                ),
+            ],
+            max_retry_per_llm=0,
+            retry_interval=0.5,
+            retry_on_chunk_sent=True,
         ),
         tts=inference.TTS(
             model="cartesia/sonic-3.6",

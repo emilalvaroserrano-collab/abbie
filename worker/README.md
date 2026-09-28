@@ -2,10 +2,11 @@
 
 Voice worker for ABI Tech's Abbie customer-service agent.
 
-## Current LiveKit Inference stack
+## Current voice stack
 
 - STT: `deepgram/nova-3`, `language="multi"`
-- LLM: `google/gemma-4-31b-it`
+- LLM: Ollama Cloud via its OpenAI-compatible endpoint (`https://ollama.com/v1`)
+- Default Ollama model: `gemma4:31b` (override with `OLLAMA_MODEL`)
 - TTS: `cartesia/sonic-3.6`
 - Voice: `CARTESIA_VOICE_ID` environment variable
 - Noise enhancement: `ai_coustics` QUAIL_VF_L
@@ -20,9 +21,12 @@ LIVEKIT_URL=
 LIVEKIT_API_KEY=
 LIVEKIT_API_SECRET=
 CARTESIA_VOICE_ID=
+OLLAMA_API_KEY=
+OLLAMA_API_KEY_2=
+OLLAMA_MODEL=gemma4:31b
 ```
 
-The current `inference.*` pipeline does not require direct Deepgram, Gemini, or Cartesia provider API keys. `.env.example` includes optional names for later direct-provider use. Never commit actual secrets.
+STT and TTS continue through LiveKit Inference. The conversation LLM connects directly to Ollama Cloud and requires `OLLAMA_API_KEY` and `OLLAMA_API_KEY_2`. The worker automatically falls back from key 1 to key 2 when the primary request fails, and periodically restores the primary when it becomes healthy again. Keep the key in the deployment environment only; never commit actual secrets.
 
 ## Run
 
