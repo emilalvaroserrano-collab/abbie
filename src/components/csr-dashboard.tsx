@@ -9,20 +9,7 @@ import {
 type CallState = "idle" | "connecting" | "active" | "ending" | "error";
 type TranscriptItem = { id: string; speaker: "customer" | "abbie" | "system"; text: string; at: string };
 
-type LiveKitRoomLike = {
-  connect: (url: string, token: string) => Promise<void>;
-  disconnect: () => void;
-  startAudio?: () => Promise<void>;
-  on: (event: string, cb: (...args: unknown[]) => void) => LiveKitRoomLike;
-  localParticipant: { setMicrophoneEnabled: (enabled: boolean) => Promise<unknown> };
-};
-type LiveKitGlobal = {
-  Room: new (options?: Record<string, unknown>) => LiveKitRoomLike;
-  RoomEvent: Record<string, string>;
-};
-declare global {
-  interface Window { LivekitClient?: LiveKitGlobal }
-}
+type GeminiLiveCall = import("@/lib/gemini-live-audio").GeminiLiveCall;
 
 const keys = [["1",""],["2","ABC"],["3","DEF"],["4","GHI"],["5","JKL"],["6","MNO"],["7","PQRS"],["8","TUV"],["9","WXYZ"],["*",""],["0","+"],["#",""]];
 const queue = [
@@ -51,8 +38,7 @@ export function CsrDashboard() {
   const [number,setNumber] = useState("+63 917 555 0138");
   const [error,setError] = useState<string|null>(null);
   const [transcript,setTranscript] = useState<TranscriptItem[]>(seed);
-  const roomRef = useRef<LiveKitRoomLike|null>(null);
-  const audioRef = useRef<HTMLDivElement|null>(null);
+  const callRef = useRef<GeminiLiveCall|null>(null);
 
   useEffect(() => {
     if (callState !== "active") return;
@@ -60,67 +46,63 @@ export function CsrDashboard() {
     return () => window.clearInterval(id);
   },[callState]);
 
-  useEffect(() => () => roomRef.current?.disconnect(),[]);
+  useEffect(() => () => { void callRef.current?.stop(); },[]);
 
   async function startCall() {
     if (callState === "active" || callState === "connecting") return;
     setError(null); setSeconds(0); setCallState("connecting");
     try {
-      const res = await fetch("/api/livekit-token",{method:"POST",headers:{"Content-Type":"application/json"},body:"{}"});
-      const data = await res.json() as {server_url?:string;participant_token?:string;error?:string};
-      if (!res.ok || !data.server_url || !data.participant_token) throw new Error(data.error || "Could not create a LiveKit session.");
-      const lk = window.LivekitClient;
-      if (!lk) throw new Error("LiveKit client is still loading. Tap Call again.");
-      const room = new lk.Room({adaptiveStream:true,dynacast:true});
-      roomRef.current = room;
-      room.on(lk.RoomEvent.TrackSubscribed || "trackSubscribed",(...args:unknown[]) => {
-        const track = args[0] as {kind?:string;attach?:()=>HTMLMediaElement}|undefined;
-        if (!track?.attach || track.kind !== "audio") return;
-        const el = track.attach(); el.autoplay = true; el.muted = !speaker; el.dataset.abbieAudio = "1";
-        audioRef.current?.appendChild(el);
-      });
-      room.on(lk.RoomEvent.TranscriptionReceived || "transcriptionReceived",(...args:unknown[]) => {
-        const segments = Array.isArray(args[0]) ? args[0] as Array<{text?:string;final?:boolean;id?:string}> : [];
-        const participant = args[1] as {identity?:string}|undefined;
-        for (const seg of segments) {
-          if (!seg.text || seg.final === false) continue;
+      const { GeminiLiveCall } = await import("@/lib/gemini-live-audio");
+      const liveCall = new GeminiLiveCall({
+        onState: (state) => {
+          if (state === "active") setCallState("active");
+          if (state === "closed") { setCallState("idle"); setMuted(false); }
+        },
+        onTranscript: (speaker, text) => {
+          const clean = text.trim();
+          if (!clean) return;
           setTranscript((items) => items.concat({
-            id:seg.id || String(Date.now()+Math.random()),
-            speaker:participant?.identity ? "abbie" : "customer",
-            text:seg.text || "",
-            at:timeNow(),
+            id: String(Date.now() + Math.random()),
+            speaker,
+            text: clean,
+            at: timeNow(),
           }).slice(-30));
-        }
+        },
+        onError: (message) => { setError(message); setCallState("error"); },
       });
-      room.on(lk.RoomEvent.Disconnected || "disconnected",() => { setCallState("idle"); setMuted(false); });
-      await room.connect(data.server_url,data.participant_token);
-      if (room.startAudio) await room.startAudio();
-      await room.localParticipant.setMicrophoneEnabled(true);
+      callRef.current = liveCall;
+      await liveCall.start();
       setCallState("active");
-      setTranscript((items) => items.concat({id:"s"+Date.now(),speaker:"system",text:"Secure LiveKit room connected · AbbieCSR dispatched",at:timeNow()}));
+      setTranscript((items) => items.concat({
+        id: "s" + Date.now(),
+        speaker: "system",
+        text: "Secure Gemini Live Audio session connected · native realtime voice active",
+        at: timeNow(),
+      }));
     } catch (e) {
-      roomRef.current?.disconnect(); roomRef.current = null;
+      await callRef.current?.stop(); callRef.current = null;
       setCallState("error"); setError(e instanceof Error ? e.message : "Call failed.");
     }
   }
 
   function endCall() {
-    setCallState("ending"); roomRef.current?.disconnect(); roomRef.current = null;
-    audioRef.current?.replaceChildren(); setMuted(false);
+    setCallState("ending");
+    const current = callRef.current; callRef.current = null;
+    void current?.stop();
+    setMuted(false);
     window.setTimeout(() => setCallState("idle"),150);
   }
   async function toggleMute() {
-    if (!roomRef.current || callState !== "active") return;
-    const next = !muted; await roomRef.current.localParticipant.setMicrophoneEnabled(!next); setMuted(next);
+    if (!callRef.current || callState !== "active") return;
+    const next = !muted; callRef.current.setMuted(next); setMuted(next);
   }
   function toggleSpeaker() {
     const next = !speaker; setSpeaker(next);
-    audioRef.current?.querySelectorAll<HTMLMediaElement>("[data-abbie-audio]").forEach((el) => { el.muted = !next; });
+    callRef.current?.setSpeakerEnabled(next);
   }
 
   return (
     <main className="min-h-dvh bg-[#f4f6f8] text-slate-950">
-      <div ref={audioRef} className="hidden" aria-hidden="true" />
       <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-[1680px] items-center justify-between px-4 sm:px-6">
           <div className="flex items-center gap-3">
@@ -136,7 +118,7 @@ export function CsrDashboard() {
           <nav className="space-y-1">
             {[[LayoutDashboard,"Overview"],[PhoneCall,"Calls"],[Users,"Customers"],[BarChart3,"QA & Insights"],[Settings,"Settings"]].map(([Icon,label],i) => <button key={String(label)} className={cx("flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium",i===0?"bg-slate-950 text-white":"text-slate-600 hover:bg-slate-100")}><Icon className="size-4"/>{String(label)}</button>)}
           </nav>
-          <div className="mt-auto rounded-2xl border border-slate-200 bg-slate-50 p-3"><div className="flex items-center gap-2 text-sm font-semibold"><Bot className="size-4"/>AbbieCSR</div><div className="mt-3 flex justify-between text-xs text-slate-500"><span>Voice runtime</span><b className="text-emerald-600">Online</b></div><div className="mt-2 h-1.5 rounded-full bg-slate-200"><div className="h-full w-[86%] rounded-full bg-slate-950"/></div><p className="mt-2 text-[11px] leading-relaxed text-slate-500">LiveKit voice room, realtime transcript, KYC-first CSR flow.</p></div>
+          <div className="mt-auto rounded-2xl border border-slate-200 bg-slate-50 p-3"><div className="flex items-center gap-2 text-sm font-semibold"><Bot className="size-4"/>AbbieCSR</div><div className="mt-3 flex justify-between text-xs text-slate-500"><span>Voice runtime</span><b className="text-emerald-600">Online</b></div><div className="mt-2 h-1.5 rounded-full bg-slate-200"><div className="h-full w-[86%] rounded-full bg-slate-950"/></div><p className="mt-2 text-[11px] leading-relaxed text-slate-500">Gemini Live Audio, realtime transcript, KYC-first CSR flow.</p></div>
         </aside>
 
         <section className="min-w-0 p-4 sm:p-6">
@@ -169,7 +151,7 @@ export function CsrDashboard() {
                 </div>
               </div>
 
-              <Card title="Live conversation" subtitle="Realtime speech transcript from the LiveKit room">
+              <Card title="Live conversation" subtitle="Realtime speech transcript from the live audio session">
                 <div className="max-h-[420px] min-h-[310px] space-y-4 overflow-y-auto p-4 sm:p-5">
                   {transcript.map((t)=><div key={t.id} className={cx("flex gap-3",t.speaker==="customer"&&"justify-end")}>{t.speaker!=="customer"&&<div className={cx("mt-1 grid size-7 shrink-0 place-items-center rounded-full",t.speaker==="abbie"?"bg-slate-950 text-white":"bg-slate-100 text-slate-500")}>{t.speaker==="abbie"?<Bot className="size-3.5"/>:<ShieldCheck className="size-3.5"/>}</div>}<div className={cx("max-w-[80%]",t.speaker==="customer"&&"text-right")}><p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-slate-400">{t.speaker==="customer"?"Customer":t.speaker==="abbie"?"Abbie":"System"} · {t.at}</p><p className={cx("rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed",t.speaker==="customer"?"rounded-tr-md bg-slate-950 text-white":t.speaker==="abbie"?"rounded-tl-md bg-slate-100 text-slate-800":"border border-dashed border-slate-200 text-slate-500")}>{t.text}</p></div></div>)}
                 </div>
@@ -198,7 +180,7 @@ function PhonePanel({callState,seconds,number,setNumber,muted,speaker,error,star
   const active = callState==="active";
   const connecting = callState==="connecting";
   return <aside className="2xl:sticky 2xl:top-20 2xl:self-start">
-    <div className="mb-3 flex items-center justify-between px-1"><div><h2 className="font-semibold">Agent dialer</h2><p className="text-xs text-slate-500">LiveKit voice test handset</p></div><span className="rounded-full border border-slate-200 bg-white px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-500">Mobile mockup</span></div>
+    <div className="mb-3 flex items-center justify-between px-1"><div><h2 className="font-semibold">Agent dialer</h2><p className="text-xs text-slate-500">Gemini native live audio handset</p></div><span className="rounded-full border border-slate-200 bg-white px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-500">Mobile mockup</span></div>
     <div className="mx-auto w-full max-w-[350px] rounded-[42px] border-[8px] border-slate-950 bg-slate-950 p-1 shadow-2xl">
       <div className="relative min-h-[650px] overflow-hidden rounded-[32px] bg-[#0b0f14] text-white">
         <div className="absolute left-1/2 top-2 h-6 w-24 -translate-x-1/2 rounded-full bg-black"/>
@@ -209,11 +191,11 @@ function PhonePanel({callState,seconds,number,setNumber,muted,speaker,error,star
           <div className="mt-5 grid grid-cols-3 gap-x-5 gap-y-3 px-2">{keys.map(([d,l])=><button key={d} onClick={()=>setNumber(number+d)} className="mx-auto grid size-16 place-items-center rounded-full bg-white/10 text-xl active:bg-white/20"><span>{d}<small className="mt-1 block text-[8px] font-bold tracking-[.2em] text-slate-400">{l}</small></span></button>)}</div>
           <button onClick={startCall} className="mx-auto mt-5 grid size-16 place-items-center rounded-full bg-emerald-500"><Phone className="size-7 fill-current"/></button>
           {error&&<p className="mt-4 rounded-xl bg-rose-500/10 px-3 py-2 text-center text-xs text-rose-300 ring-1 ring-rose-500/20">{error}</p>}
-          <p className="mt-5 flex items-center justify-center gap-2 text-[10px] text-slate-500"><KeyRound className="size-3"/>JWT minted server-side</p>
+          <p className="mt-5 flex items-center justify-center gap-2 text-[10px] text-slate-500"><KeyRound className="size-3"/>Ephemeral voice token minted server-side</p>
         </div> : <div className="flex min-h-[600px] flex-col px-5 pb-7 pt-10">
           <div className="text-center"><div className="mx-auto grid size-20 place-items-center rounded-full bg-slate-800"><Bot className="size-9"/></div><p className="mt-4 text-xl font-semibold">Abbie</p><p className="mt-1 text-sm text-slate-400">{connecting?"Connecting securely...":duration(seconds)}</p></div>
           <div className="mt-10 flex h-14 items-center justify-center gap-1.5">{[18,30,42,24,48,34,20,38,28,44,23].map((h,i)=><span key={i} className={cx("w-1 rounded-full",active?"animate-pulse bg-emerald-400":"bg-slate-700")} style={{height:h}}/>)}</div>
-          <p className="mt-3 text-center text-xs text-slate-500">{active?"AbbieCSR connected · realtime audio":"Creating room and dispatching agent"}</p>
+          <p className="mt-3 text-center text-xs text-slate-500">{active?"Abbie connected · native realtime audio":"Opening secure live audio session"}</p>
           <div className="mt-auto grid grid-cols-3 gap-5"><Control label={muted?"Unmute":"Mute"} icon={muted?MicOff:Mic} active={muted} onClick={toggleMute}/><Control label="Keypad" icon={MoreHorizontal}/><Control label={speaker?"Speaker":"Speaker off"} icon={speaker?Volume2:VolumeX} active={speaker} onClick={toggleSpeaker}/></div>
           <button onClick={endCall} className="mx-auto mt-8 grid size-16 place-items-center rounded-full bg-rose-500"><PhoneOff className="size-7 fill-current"/></button>
         </div>}
